@@ -15,6 +15,7 @@ pip install -r requirements.txt
 ### Adding an Expense
 ```
 python3 app.py --operation add --description apple --amount 10
+Category not provided for the expense. Defaulting the category to 'misc'
 Expense added to datastore successfully. ID: 5
 ```
 
@@ -22,15 +23,15 @@ Expense added to datastore successfully. ID: 5
 
 ```
 python3 app.py --operation list
-+----+-------------+--------+------------+
-| id | description | amount |    date    |
-+----+-------------+--------+------------+
-| 1  |    Apples   | 100.0  | 2024-11-29 |
-| 2  |    Apples   | 100.0  | 2024-11-29 |
-| 3  |    Apples   | 100.0  | 2024-11-29 |
-| 4  |    apple    |  10.0  | 2024-11-29 |
-| 5  |    apple    |  10.0  | 2024-11-29 |
-+----+-------------+--------+------------+
++----+-------------+--------+------------+-----------+
+| id | description | amount |    date    |  category |
++----+-------------+--------+------------+-----------+
+| 1  |    apple    |  10.0  | 2024-11-29 |    misc   |
+| 2  |    apple    |  10.0  | 2024-11-29 |    misc   |
+| 3  |    apple    |  10.0  | 2024-11-29 |    misc   |
+| 4  |    apple    |  1.0   | 2024-11-29 |    misc   |
+| 5  |    apple    |  10.0  | 2024-11-29 | groceries |
++----+-------------+--------+------------+-----------+
 ```
 
 ### Summary of all the Expenses
@@ -59,4 +60,12 @@ Expense with ID 4 has been updated successfully!
 ```
 python3 app.py --operation delete --id 4
 Expense added to datastore successfully. ID: 4
+```
+
+### Exporting the data to CSV:
+
+```
+python3 app.py --operation export
+Enter the CSV Filename: export_to_csv
+Exported the data to export_to_csv.csv file!
 ```
